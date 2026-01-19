@@ -1,4 +1,4 @@
-package com.example.budgetx.Adapter
+﻿package com.example.momo.Adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.budgetx.Database.Transaction
-import com.example.budgetx.R
+import com.example.momo.Database.Transaction
+import com.example.momo.R
 
 class RecyclerViewAdapter(
     private var transactions: List<Transaction>,
@@ -51,7 +51,7 @@ class RecyclerViewAdapter(
         holder.amountTextView.text = "${transaction.amount}"
 
         // Change the text color based on transaction type
-        val colorRes = if (transaction.type == "Income") R.color.light_green else R.color.white_dark
+        val colorRes = if (transaction.type == "Income") R.color.light_green else R.color.primaryText
         holder.amountTextView.setTextColor(ContextCompat.getColor(holder.itemView.context, colorRes))
 
         // Handle item click to pass the transaction

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/primaryBackground"
     tools:context=".TransactionFragment">
 
     <!-- Undo Layout -->
@@ -104,7 +104,7 @@
             android:importantForAutofill="no"
             android:includeFontPadding="false"
             android:inputType="text"
-            android:textColor="@color/white_dark"
+            android:textColor="@color/primaryText"
             android:textColorHint="@color/grey"
             android:textSize="@dimen/_13sdp"
             android:layout_weight="1" />
@@ -119,7 +119,7 @@
         android:layout_marginStart="@dimen/_26sdp"
         android:fontFamily="@font/nunito_bold"
         android:text="Filter By"
-        android:textColor="@color/white_dark"
+        android:textColor="@color/primaryText"
         android:textSize="@dimen/_22sdp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/layoutSearch"

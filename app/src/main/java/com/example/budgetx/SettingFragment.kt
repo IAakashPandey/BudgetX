@@ -1,4 +1,4 @@
-package com.example.budgetx
+﻿package com.example.momo
 
 import android.content.Intent
 import android.net.Uri
@@ -10,7 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.budgetx.databinding.FragmentSettingBinding
+import com.example.momo.databinding.FragmentSettingBinding
 
 
 class SettingFragment : Fragment() {
@@ -100,7 +100,7 @@ class SettingFragment : Fragment() {
 
         binding.layoutReportBug.setOnClickListener {
             val email = "mailshinobicode@gmail.com"
-            val subject = "Bug Report - BudgetX"
+            val subject = "Bug Report - Momo"
             val body = getDevicesInfo()
 
             val emailIntent = Intent(Intent.ACTION_SEND).apply {
@@ -120,7 +120,7 @@ class SettingFragment : Fragment() {
 
         binding.layoutSuggestion.setOnClickListener {
             val email = "mailshinobicode@gmail.com"
-            val subject = "Regarding App Suggestion - BudgetX"
+            val subject = "Regarding App Suggestion - Momo"
             val body = getDevicesInfo()
 
             val emailIntent = Intent(Intent.ACTION_SEND).apply {
@@ -148,7 +148,7 @@ class SettingFragment : Fragment() {
         deviceInfo.append("Device Version: ${Build.VERSION.RELEASE}\n")
         deviceInfo.append("SDK: ${Build.VERSION.SDK_INT}\n")
         deviceInfo.append("App Version: 1 \n") // App version change everytime
-        deviceInfo.append("Package Name: com.example.budgetx \n") // App package name change every time
+        deviceInfo.append("Package Name: com.example.momo \n") // App package name change every time
 
 
         return deviceInfo.toString()

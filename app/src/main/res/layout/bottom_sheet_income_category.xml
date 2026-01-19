@@ -3,7 +3,7 @@
     android:layout_height="@dimen/_280sdp"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@color/black">
+    android:background="@color/primaryBackground">
 
     <TextView
         android:layout_width="match_parent"
@@ -11,7 +11,7 @@
         android:text="Select Income Category"
         android:fontFamily="@font/nunito_extra_bold"
         android:textAlignment="center"
-        android:textColor="@color/white_dark"
+        android:textColor="@color/primaryText"
         android:textSize="18sp"
         android:textStyle="bold"
         android:paddingBottom="8dp" />
@@ -37,7 +37,7 @@
             android:layout_marginStart="16dp"
             android:text="Salary"
             android:fontFamily="@font/nunito_bold"
-            android:textColor="@color/white_dark"
+            android:textColor="@color/primaryText"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -61,7 +61,7 @@
             android:layout_marginStart="16dp"
             android:text="Business"
             android:fontFamily="@font/nunito_bold"
-            android:textColor="@color/white_dark"
+            android:textColor="@color/primaryText"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -85,7 +85,7 @@
             android:layout_marginStart="16dp"
             android:text="Investment"
             android:fontFamily="@font/nunito_bold"
-            android:textColor="@color/white_dark"
+            android:textColor="@color/primaryText"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -111,7 +111,7 @@
             android:layout_marginStart="16dp"
             android:text="Other"
             android:fontFamily="@font/nunito_bold"
-            android:textColor="@color/white_dark"
+            android:textColor="@color/primaryText"
             android:textSize="16sp" />
     </LinearLayout>
 </LinearLayout>

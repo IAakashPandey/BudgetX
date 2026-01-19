@@ -1,4 +1,4 @@
-package com.example.budgetx
+﻿package com.example.momo
 
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
@@ -10,7 +10,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.example.budgetx.databinding.FragmentNotificationsBinding
+import com.example.momo.databinding.FragmentNotificationsBinding
 
 class NotificationsFragment : Fragment() {
 

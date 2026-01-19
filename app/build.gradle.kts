@@ -1,19 +1,17 @@
-plugins {
+﻿plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("com.google.devtools.ksp") version "2.1.0-1.0.29"
     kotlin("plugin.serialization") version "2.0.21"
     id("kotlin-parcelize")
-    alias(libs.plugins.google.gms.google.services)
-
 }
 
 android {
-    namespace = "com.example.budgetx"
+    namespace = "com.example.momo"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.budgetx"
+        applicationId = "com.example.momo"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -54,8 +52,6 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-    implementation(libs.firebase.auth)
-    implementation(libs.firebase.firestore)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -113,10 +109,6 @@ dependencies {
     implementation ("androidx.work:work-runtime-ktx:2.10.0")
 
     implementation ("it.xabaras.android:recyclerview-swipedecorator:1.4")
-
-    implementation ("com.google.android.gms:play-services-auth:21.3.0")
-    implementation ("com.google.firebase:firebase-auth:23.1.0")
-
 
     implementation ("androidx.credentials:credentials:1.3.0")
 }

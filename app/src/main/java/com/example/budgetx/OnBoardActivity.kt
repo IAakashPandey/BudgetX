@@ -1,4 +1,4 @@
-package com.example.budgetx
+﻿package com.example.momo
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.viewpager2.widget.ViewPager2
-import com.example.budgetx.databinding.ActivityOnBoardBinding
-import com.example.budgetxxx.Adapter.OnBoardingAdapter
-import com.google.firebase.auth.FirebaseAuth
+import com.example.momo.databinding.ActivityOnBoardBinding
+import com.example.momo.Adapter.OnBoardingAdapter
 
 
 class OnBoardActivity : AppCompatActivity() {
@@ -82,17 +81,7 @@ class OnBoardActivity : AppCompatActivity() {
 
 
     private fun navigateToMain() {
-        val auth = FirebaseAuth.getInstance()
-        val currentUser = auth.currentUser
-
-        val intent = if (currentUser == null) {
-            // No user logged in → Go to Login Screen
-            Intent(this, LoginActivity::class.java)
-        } else {
-            // User logged in → Go to MainActivity
-            Intent(this, MainActivity::class.java)
-        }
-
+        val intent = Intent(this, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
         finish()

@@ -1,4 +1,4 @@
-package com.example.budgetx.Adapter
+﻿package com.example.momo.Adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.budgetx.Database.Transaction
-import com.example.budgetx.R
+import com.example.momo.Database.Transaction
+import com.example.momo.R
 
 class TransactionFragmentAdapter  : RecyclerView.Adapter<TransactionFragmentAdapter.TransactionViewHolder>(){
 
@@ -44,7 +44,7 @@ class TransactionFragmentAdapter  : RecyclerView.Adapter<TransactionFragmentAdap
         if (transaction.type == "Income") {
             holder.amountTextView.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.light_green))  // Green for income
         } else {
-            holder.amountTextView.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.white_dark))  // Color for expenses
+            holder.amountTextView.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.primaryText))  // Color for expenses
         }
     }
 

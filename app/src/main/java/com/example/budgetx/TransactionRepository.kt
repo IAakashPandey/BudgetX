@@ -1,14 +1,10 @@
-package com.example.budgetx
+﻿package com.example.momo
 
-import com.example.budgetx.Database.SplitTransaction
-import com.example.budgetx.Database.SplitTransactionDao
-import com.example.budgetx.Database.Transaction
-import com.example.budgetx.Database.TransactionDao
+import com.example.momo.Database.Transaction
+import com.example.momo.Database.TransactionDao
 import kotlinx.coroutines.flow.Flow
 
-class TransactionRepository(private val transactionDao: TransactionDao,
-                            private val splitTransactionDao: SplitTransactionDao
-) {
+class TransactionRepository(private val transactionDao: TransactionDao) {
 
     // Fetch total income
     fun getTotalIncome(): Flow<Double> {
@@ -65,17 +61,5 @@ class TransactionRepository(private val transactionDao: TransactionDao,
         transactionDao.clearAllTransactions()
     }
 
-    // Split transaction methods
-    suspend fun insertSplitTransaction(splitTransaction: SplitTransaction) {
-        splitTransactionDao.insertSplitTransaction(splitTransaction)
-    }
-
-    fun getSplitTransactionsByTransactionId(transactionId: Int): Flow<List<SplitTransaction>> {
-        return splitTransactionDao.getSplitTransactionsByTransactionId(transactionId)
-    }
-
-    suspend fun deleteSplitTransactionsByTransactionId(transactionId: Int) {
-        splitTransactionDao.deleteSplitTransactionsByTransactionId(transactionId)
-    }
 }
 

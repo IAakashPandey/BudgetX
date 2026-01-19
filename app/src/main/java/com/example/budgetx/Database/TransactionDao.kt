@@ -1,4 +1,4 @@
-package com.example.budgetx.Database
+﻿package com.example.momo.Database
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -46,15 +46,4 @@ interface TransactionDao {
 
     @Query("DELETE FROM transaction_table")
     suspend fun clearAllTransactions()
-}
-@Dao
-interface SplitTransactionDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertSplitTransaction(splitTransaction: SplitTransaction)
-
-    @Query("SELECT * FROM split_transaction_table WHERE transactionId = :transactionId")
-    fun getSplitTransactionsByTransactionId(transactionId: Int): Flow<List<SplitTransaction>>
-
-    @Query("DELETE FROM split_transaction_table WHERE transactionId = :transactionId")
-    suspend fun deleteSplitTransactionsByTransactionId(transactionId: Int)
 }

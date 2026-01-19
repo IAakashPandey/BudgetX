@@ -1,4 +1,4 @@
-package com.example.budgetx
+﻿package com.example.momo
 
 import android.content.Context
 import android.graphics.Canvas
@@ -13,11 +13,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.budgetx.Adapter.RecyclerViewAdapter
-import com.example.budgetx.Database.DatabaseProvider
-import com.example.budgetx.Database.Transaction
-import com.example.budgetx.Database.TransactionDatabase
-import com.example.budgetx.databinding.FragmentHomeBinding
+import com.example.momo.Adapter.RecyclerViewAdapter
+import com.example.momo.Database.DatabaseProvider
+import com.example.momo.Database.Transaction
+import com.example.momo.Database.TransactionDatabase
+import com.example.momo.databinding.FragmentHomeBinding
 import com.google.android.material.snackbar.Snackbar
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 import kotlinx.coroutines.launch
@@ -35,9 +35,9 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Initialize Database and Repository
+        // Initialize Database and Repository (no split transactions)
         val database = TransactionDatabase.getDatabase(requireContext())
-        val repository = TransactionRepository(database.transactionDao(), database.splitTransactionDao())
+        val repository = TransactionRepository(database.transactionDao())
 
         // Initialize ViewModel
         val factory = TransactionViewModelFactory(repository)

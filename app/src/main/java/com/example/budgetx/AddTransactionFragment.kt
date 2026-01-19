@@ -1,4 +1,4 @@
-package com.example.budgetx
+﻿package com.example.momo
 
 import android.app.DatePickerDialog
 import android.os.Bundle
@@ -10,9 +10,12 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.budgetx.Database.DatabaseProvider
-import com.example.budgetx.Database.Transaction
-import com.example.budgetx.databinding.FragmentAddTransactionBinding
+import com.example.momo.Database.DatabaseProvider
+import com.example.momo.Database.Transaction
+import com.example.momo.databinding.FragmentAddTransactionBinding
+import com.example.momo.ExpenseCategoryBottomSheet
+import com.example.momo.FromBottomSheetDialog
+import com.example.momo.IncomeCategoryBottomSheet
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -63,9 +66,7 @@ class AddTransactionFragment : Fragment(),
     ): View {
         _binding = FragmentAddTransactionBinding.inflate(inflater, container, false)
         val transactionDao = DatabaseProvider.getDatabase(requireContext()).transactionDao()
-        val splitTransactionDao = DatabaseProvider.getDatabase(requireContext()).splitTransactionDao()  // This should exist in your DatabaseProvider
-
-        repository = TransactionRepository(transactionDao, splitTransactionDao)
+        repository = TransactionRepository(transactionDao)
         transactionViewModel = ViewModelProvider(
             this,
             TransactionViewModelFactory(repository)
@@ -88,14 +89,7 @@ class AddTransactionFragment : Fragment(),
             highlightButton(binding.btnExpense, binding.btnIncome) // Default to Expense
         }
 
-        binding.btnSplit.setOnClickListener{
-            val splitTransactionFragment = SplitTransactionFragment()
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, splitTransactionFragment)
-                .addToBackStack(null)
-                .commit()
 
-        }
     }
 
     private fun prefillData(transaction: Transaction) {
@@ -121,8 +115,8 @@ class AddTransactionFragment : Fragment(),
 
     private fun highlightButton(selectedButton: AppCompatButton, unselectedButton: AppCompatButton) {
         selectedButton.setBackgroundResource(R.drawable.rectangular_background_button)
-        selectedButton.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
-        unselectedButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.black))
+        selectedButton.setTextColor(ContextCompat.getColor(requireContext(), R.color.primaryBackground))
+        unselectedButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.primaryBackground))
         unselectedButton.setTextColor(ContextCompat.getColor(requireContext(), R.color.grey))
     }
 

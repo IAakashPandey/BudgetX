@@ -1,4 +1,4 @@
-package com.example.budgetx
+﻿package com.example.momo
 
 import android.graphics.PorterDuff
 import android.os.Bundle
@@ -7,8 +7,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import com.example.budgetx.databinding.ActivityMainBinding
-import com.google.firebase.auth.FirebaseAuth
+import com.example.momo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,14 +16,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var imageTransaction: ImageView
     private lateinit var imageGraph: ImageView
     private lateinit var imageSetting: ImageView
-    private lateinit var imageSplit: ImageView
-    private val auth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        window.statusBarColor = ContextCompat.getColor(this, R.color.black)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.primaryBackground)
 
         // Retrieve customUserId from intent if available and save in SharedPreferences
         val customUserId = intent.getStringExtra("USER_ID")
@@ -38,34 +35,17 @@ class MainActivity : AppCompatActivity() {
             editor.apply()
         }
 
-        // Handle fragment based on authentication status
-        if (auth.currentUser == null) {
-            val settingFragment = SettingFragment().apply {
-                arguments = Bundle().apply {
-                    // Retrieve customUserId from SharedPreferences
-                    val userId = getSharedPreferences("app_prefs", MODE_PRIVATE)
-                        .getString("customUserId", null)
-                    Log.d("MainActivity", "Passing customUserId: $userId")
-                    putString("userId", userId)
-                }
-            }
-
-            // Replace fragment with SettingFragment on initial load
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, settingFragment)
-                .commit()
-        } else {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, HomeFragment())
-                .commit()
-        }
+        // Always start with HomeFragment (Firebase removed)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, HomeFragment())
+            .commit()
 
         // Initialize icons
         imageHome = binding.imageHome
         imageTransaction = binding.imageTransaction
         imageGraph = binding.imageGraph
         imageSetting = binding.imageSetting
-        imageSplit = binding.imageSplit
+
 
         // Set initial icon selection state
         resetAllIcons()
@@ -82,10 +62,6 @@ class MainActivity : AppCompatActivity() {
             loadFragment(TransactionFragment())
         }
 
-        imageSplit.setOnClickListener {
-            updateIconSelection(imageSplit)
-            loadFragment(SplitTransactionFragment())
-        }
 
         imageGraph.setOnClickListener {
             updateIconSelection(imageGraph)
@@ -132,7 +108,6 @@ class MainActivity : AppCompatActivity() {
         setIconColor(imageTransaction, R.color.bottom_nav_unselected)
         setIconColor(imageGraph, R.color.bottom_nav_unselected)
         setIconColor(imageSetting, R.color.bottom_nav_unselected)
-        setIconColor(imageSplit, R.color.bottom_nav_unselected)
     }
 
     private fun setIconColor(icon: ImageView, colorRes: Int) {

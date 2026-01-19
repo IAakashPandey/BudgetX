@@ -1,4 +1,4 @@
-package com.example.budgetx.Database
+﻿package com.example.momo.Database
 
 import android.os.Parcelable
 import androidx.room.Entity
@@ -18,15 +18,4 @@ data class Transaction(
     val paymentMode: String,
     val note: String? = null
 )  : Parcelable
-
-@Parcelize
-@Entity(tableName = "split_transaction_table")
-data class SplitTransaction(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
-    val transactionId: Int,
-    val friendName: String,
-    var friendAmount: Double,
-    val status: String
-) : Parcelable
 

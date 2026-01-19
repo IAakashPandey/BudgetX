@@ -1,12 +1,11 @@
-package com.example.budgetx
+﻿package com.example.momo
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.budgetx.Database.SplitTransaction
-import com.example.budgetx.Database.Transaction
+import com.example.momo.Database.Transaction
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
@@ -77,17 +76,6 @@ class TransactionViewModel(private val repository: TransactionRepository) : View
         }
     }
 
-    // Split transaction methods
-    fun insertSplitTransaction(splitTransaction: SplitTransaction) = viewModelScope.launch {
-        repository.insertSplitTransaction(splitTransaction)
-    }
-
-    fun getSplitTransactionsByTransactionId(transactionId: Int): LiveData<List<SplitTransaction>> {
-        return repository.getSplitTransactionsByTransactionId(transactionId).asLiveData()
-    }
-
-    fun deleteSplitTransactionsByTransactionId(transactionId: Int) = viewModelScope.launch {
-        repository.deleteSplitTransactionsByTransactionId(transactionId)
-    }
 }
+
 

@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="SelectedChipStyle" parent="Widget.MaterialComponents.Chip.Action">
         <item name="chipBackgroundColor">@color/white</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textColor">@color/primaryBackground</item>
         <item name="chipStrokeWidth">0dp</item>
         <item name="android:font" tools:ignore="NewApi">@font/nunito_bold</item>
         <item name="chipCornerRadius">@dimen/_4sdp</item>
@@ -10,7 +10,7 @@
     </style>
 
     <style name="UnselectedChipStyle" parent="Widget.MaterialComponents.Chip.Action">
-        <item name="chipBackgroundColor">@color/black</item>
+        <item name="chipBackgroundColor">@color/primaryBackground</item>
         <item name="android:textColor">@color/white</item>
         <item name="chipStrokeWidth">0dp</item>
         <item name="android:font" tools:ignore="NewApi">@font/nunito_bold</item>
@@ -22,7 +22,7 @@
         </style>
 
         <style name="SplashScreenTheme" parent="Theme.Design.Light.NoActionBar">
-            <item name="windowSplashScreenBackground">@color/black</item>
+            <item name="windowSplashScreenBackground">@color/primaryBackground</item>
             <item name="windowSplashScreenAnimatedIcon">@drawable/budgetx_icon</item>
             <item name="android:windowSplashScreenAnimationDuration" tools:ignore="NewApi">2000</item>
         </style>

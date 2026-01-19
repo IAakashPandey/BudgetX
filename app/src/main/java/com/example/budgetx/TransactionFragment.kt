@@ -1,4 +1,4 @@
-package com.example.budgetx
+﻿package com.example.momo
 
 import android.graphics.Canvas
 import android.os.Bundle
@@ -15,10 +15,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.budgetx.Adapter.RecyclerViewAdapter
-import com.example.budgetx.Database.Transaction
-import com.example.budgetx.Database.TransactionDatabase
-import com.example.budgetx.databinding.FragmentTransactionBinding
+import com.example.momo.Adapter.RecyclerViewAdapter
+import com.example.momo.Database.Transaction
+import com.example.momo.Database.TransactionDatabase
+import com.example.momo.databinding.FragmentTransactionBinding
 import com.google.android.material.chip.ChipGroup
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 
@@ -48,7 +48,7 @@ class TransactionFragment : Fragment() {
         // Initialize the repository and ViewModel
         val application = requireActivity().application
         val database = TransactionDatabase.getDatabase(requireContext())
-        val repository = TransactionRepository(database.transactionDao(), database.splitTransactionDao())
+        val repository = TransactionRepository(database.transactionDao())
         viewModel = ViewModelProvider(requireActivity(), TransactionViewModelFactory(repository))
             .get(TransactionViewModel::class.java)
 
@@ -84,12 +84,12 @@ class TransactionFragment : Fragment() {
                 val chipView = chip as com.google.android.material.chip.Chip // Cast to Chip
                 if (chip.id == checkedId) {
                     // Apply selected styles: White background and black text
-                    chipView.chipBackgroundColor = ContextCompat.getColorStateList(requireContext(), R.color.white_dark)
-                    chipView.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                    chipView.chipBackgroundColor = ContextCompat.getColorStateList(requireContext(), R.color.primaryText)
+                    chipView.setTextColor(ContextCompat.getColor(requireContext(), R.color.primaryBackground))
                 } else {
                     // Apply unselected styles: Black background and white text
-                    chipView.chipBackgroundColor = ContextCompat.getColorStateList(requireContext(), R.color.black)
-                    chipView.setTextColor(ContextCompat.getColor(requireContext(), R.color.white_dark))
+                    chipView.chipBackgroundColor = ContextCompat.getColorStateList(requireContext(), R.color.primaryBackground)
+                    chipView.setTextColor(ContextCompat.getColor(requireContext(), R.color.primaryText))
                 }
             }
         }

@@ -1,4 +1,4 @@
-package com.example.budgetx
+﻿package com.example.momo
 
 import android.graphics.Color
 import android.os.Bundle
@@ -10,9 +10,9 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.budgetx.Database.Transaction
-import com.example.budgetx.Database.TransactionDatabase
-import com.example.budgetx.databinding.FragmentGraphBinding
+import com.example.momo.Database.Transaction
+import com.example.momo.Database.TransactionDatabase
+import com.example.momo.databinding.FragmentGraphBinding
 import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
@@ -37,7 +37,7 @@ class GraphFragment : Fragment() {
 
         // Initialize ViewModel
         val database = TransactionDatabase.getDatabase(requireContext())
-        val repository = TransactionRepository(database.transactionDao(), database.splitTransactionDao())
+        val repository = TransactionRepository(database.transactionDao())
         viewModel = ViewModelProvider(requireActivity(), TransactionViewModelFactory(repository))
             .get(TransactionViewModel::class.java)
 
